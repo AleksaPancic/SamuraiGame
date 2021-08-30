@@ -1,0 +1,103 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+.blue{color:rgb(0,0,255);}
+.grey{color:rgb(128,128,128);}
+.brown{color:rgb(0,128,128);}
+</style>
+</head>
+<body>
+<pre>
+// Action script...
+
+// [Action in Frame 1]
+walkspeed = 5;
+walkspeedback = 2;
+Samuraiattack = False;
+hpValue = 2;
+HP1Value = 0.150000;
+SamuraiChar.onEnterFrame = <span class="blue">function</span> ()
+{
+    <span class="blue">if</span> (Key.isDown(65) && !Samuraiattack)
+    {
+        this._x = this._x - walkspeedback;
+        this.gotoAndPlay(<span class="brown">"Samurai1Walkback"</span>);
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (Key.isDown(68) && !Samuraiattack)
+    {
+        this._x = this._x + walkspeed;
+        this.gotoAndStop(<span class="brown">"Samurai1Walk"</span>);
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (Key.isDown(71) && !Samuraiattack)
+    {
+        this.gotoAndPlay(<span class="brown">"Samurai1Attack"</span>);
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (Key.isDown(72) && !Samuraiattack)
+    {
+        this.gotoAndPlay(<span class="brown">"Samurai1Special"</span>);
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (Key.isDown(84) && !Samuraiattack)
+    {
+        this.gotoAndPlay(<span class="brown">"Samurai1Attack2"</span>);
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (!Samuraiattack)
+    {
+        this.gotoAndStop(<span class="brown">"Samurai1Stand"</span>);
+    } <span class="grey">// end else if</span>
+    <span class="blue">if</span> (SamuraiChar.Samurai1Attack.Pad.hitTest(this) && !Samurai2Hit)
+    {
+        this.gotoAndStop(<span class="brown">"Samurai2Hit"</span>);
+        <span class="blue">if</span> (hp2._xscale > 0)
+        {
+            hp2._xscale = hp2._xscale - hpValue;
+        }
+        <span class="blue">else</span> <span class="blue">if</span> (SamuraiChar.Samurai1Special.hitTest(this) && !Samurai2Hit)
+        {
+            hp2._xscale = hp2._xscale - hpValue;
+        } <span class="grey">// end else if</span>
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (SamuraiChar.Samurai2Special.hitTest(this) && !Samurai2Hit)
+    {
+        this.gotoAndStop(<span class="brown">"Samurai2Hit"</span>);
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (!Samurai2Hit)
+    {
+        this.gotoAndStop(<span class="brown">"Samurai2Stand"</span>);
+    } <span class="grey">// end else if</span>
+};
+SamuraiChar2.onEnterFrame = <span class="blue">function</span> ()
+{
+    <span class="blue">if</span> (Key.isDown(37) && !Samurai2attack)
+    {
+        this._x = this._x - walkspeed;
+        this.gotoAndPlay(<span class="brown">"Samurai2Walk"</span>);
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (Key.isDown(39) && !Samurai2attack)
+    {
+        this._x = this._x + walkspeedback;
+        this.gotoAndPlay(<span class="brown">"Samurai2Walk"</span>);
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (Key.isDown(77))
+    {
+        this.gotoAndPlay(<span class="brown">"Samurai2Attack"</span>);
+    }
+    <span class="blue">else</span> <span class="blue">if</span> (!Samurai2attack)
+    {
+        this.gotoAndPlay(<span class="brown">"Samurai2Stand"</span>);
+    } <span class="grey">// end else if</span>
+    <span class="blue">if</span> (SamuraiChar2.Samurai2Attack.hitTest(this) && !Samurai1Hit)
+    {
+        <span class="blue">if</span> (HP1._xscale > 0)
+        {
+            HP1._xscale = HP1._xscale - HP1Value;
+        }
+        <span class="blue">else</span> <span class="blue">if</span> (HP1._xscale = 0)
+        {
+            Close();
+        } <span class="grey">// end if</span>
+    } <span class="grey">// end else if</span>
+};
+</pre>
+</body>
+</html>
