@@ -1,0 +1,20 @@
+**************************************
+Kontrole za prvog igraca:            *
+(A) Levo                             *
+(D) Desno                            *
+(G)(H)(T) Udarac                     *
+Kontrole za drugog igraca:           *
+(Strelica levo) Levo                 *
+(Strelica Desno) Desno               *
+(M) Udarac                           *
+**************************************
+Bugs:
+-Ne radi animacija za drugog igraca kad
+ide desno na ekranu jer koordinate ne
+zele da se poklope.
+-(N) (B) su udarci za drugog igraca 
+koji ne rade
+
+2021 update: 
+https://ruffle.rs/demo/
+Za testiranje igrice.
